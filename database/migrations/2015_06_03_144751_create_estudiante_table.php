@@ -3,22 +3,24 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration {
+class CreateEstudianteTable extends Migration {
 
 	public function up()
 	{
-		Schema::create('usuario', function(Blueprint $table)
+		Schema::create('estudiante', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('username')->unique();
-			$table->string('password', 60);
+			$table->string('nombre');
+			$table->string('codigo', 6);
 			$table->rememberToken();
+			$table->softDeletes();
 			$table->timestamps();
 		});
 	}
+
 	public function down()
 	{
-		Schema::drop('usuario');
+		Schema::drop('estudiante');
 	}
 
 }
