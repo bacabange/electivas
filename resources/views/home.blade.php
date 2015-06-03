@@ -3,10 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>
-		@yield('titulo', 'F5 | Login')
+		@yield('titulo', 'Electivas')
 	</title>
 	<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-	<meta name="description" content="@yield('descripcion', 'Panel de Administracion de F5 Store.')" />
 	{{-- Bootstrap --}}
 	{!! Html::style('administrador/css/vendor/bootstrap.min.css') !!}
 	{{-- FontAwesome 4.3.0 Ionicons 2.0.0 --}}
@@ -23,7 +22,7 @@
 		</div>
 
 		{{-- Administrador --}}
-		<div class="login-box-body sr-only">
+		<div id="box-admin" class="login-box-body sr-only">
 			{{-- Errores --}}
 			@include('plantilla.partials.errors')
 
@@ -53,11 +52,11 @@
 					</div>
 				</div>
 			{!! Form::close() !!}
-			<a class="btn btn-success btn-block" href="#">Administrador</a>
+			<button class="btn btn-link btn-block" type="button" id="user">Entrar Como Estudiante</button>
 		</div>
 
 		{{-- Estudiante --}}
-		<div class="login-box-body">
+		<div id="box-user" class="login-box-body">
 			{{-- Errores --}}
 			@include('plantilla.partials.errors')
 
@@ -65,29 +64,14 @@
 			{!! Form::open(['url' => 'auth/login', 'method' => 'post', 'role' => 'form']) !!}
 
 				<div class="form-group has-feedback">
-					{!! Form::text('text', null, ['class' => 'form-control', 'placeholder' => 'Username']) !!}
+					{!! Form::text('text', null, ['class' => 'form-control', 'placeholder' => 'Código']) !!}
 					<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 				</div>
 
-				<div class="form-group has-feedback">
-					{!! Form::password('password', ['class' => 'form-control', 'placeholder' => 'Contraseña']) !!}
-					<i class="glyphicon glyphicon-lock form-control-feedback"></i>
-				</div>
-
-				<div class="row">
-					<div class="col-xs-8">    
-						<div class="checkbox icheck">
-							<label>
-								<input type="checkbox" name="rememberme">Recordarme
-							</label>
-						</div>                        
-					</div>
-					<div class="col-xs-4">
-						<button type="submit" class="btn btn-primary btn-block btn-flat">Entrar</button>
-					</div>
-				</div>
+				<button type="submit" class="btn btn-primary btn-block btn-flat">Entrar</button>
+				
 			{!! Form::close() !!}
-			<a class="btn btn-success btn-block" href="#">Administrador</a>
+			<button class="btn btn-link btn-block" type="button" id="admin">Entrar Como Administrador</button>
 		</div>
 	</div>
 
@@ -103,6 +87,16 @@
 				checkboxClass: 'icheckbox_square-blue',
 				radioClass: 'iradio_square-blue',
 				increaseArea: '20%'
+			});
+
+			$('#admin').on("click", function () {
+				$("#box-user").addClass('sr-only');
+				$("#box-admin").removeClass('sr-only');
+			});
+
+			$('#user').on("click", function () {
+				$("#box-admin").addClass('sr-only');
+				$("#box-user").removeClass('sr-only');
 			});
 		});
 	</script>
