@@ -33,7 +33,7 @@
 
 				<ul class="treeview-menu menu-open">
 					<li>
-						<a href="{{-- route('admin.usuario.index') --}}">
+						<a href="{{ route('admin.usuario.index') }}">
 							<i class="fa fa-users"></i> <span>Usuarios</span>
 						</a>
 					</li>

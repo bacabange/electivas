@@ -2,19 +2,23 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\Usuario;
 use Illuminate\Http\Request;
 
 class PanelController extends Controller {
 
-	public function __construct()
+protected $usuario;
+
+	public function __construct(Usuario $usuario)
 	{
 		$this->middleware('auth');
+		$this->usuario = $usuario;
 	}
 
 	public function index()
 	{
-		return view('escritorio');
+		$usuarios = $this->usuario->paginate()->total();
+		return view('escritorio', compact('usuarios'));
 	}
 
 }
