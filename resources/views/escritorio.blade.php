@@ -1,4 +1,4 @@
-@extends('admin.template.base')
+@extends('plantilla.base')
 
 @section('contenido')
 	<div class="row">

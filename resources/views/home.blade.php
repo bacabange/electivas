@@ -30,7 +30,7 @@
 			{!! Form::open(['url' => 'auth/login', 'method' => 'post', 'role' => 'form']) !!}
 
 				<div class="form-group has-feedback">
-					{!! Form::text('text', null, ['class' => 'form-control', 'placeholder' => 'Username']) !!}
+					{!! Form::text('username', null, ['class' => 'form-control', 'placeholder' => 'Username']) !!}
 					<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 				</div>
 
@@ -61,10 +61,10 @@
 			@include('plantilla.partials.errors')
 
 			<p class="login-box-msg">Inicia sesión con tus datos</p>
-			{!! Form::open(['url' => 'auth/login', 'method' => 'post', 'role' => 'form']) !!}
+			{!! Form::open(['url' => 'auth/login1', 'method' => 'post', 'role' => 'form']) !!}
 
 				<div class="form-group has-feedback">
-					{!! Form::text('text', null, ['class' => 'form-control', 'placeholder' => 'Código']) !!}
+					{!! Form::text('codigo', null, ['class' => 'form-control', 'placeholder' => 'Código']) !!}
 					<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 				</div>
 
