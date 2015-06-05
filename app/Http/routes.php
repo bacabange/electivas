@@ -14,6 +14,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function ()
 	/* Gestion de usuarios */
 	// Route::get('usuario/{id}/restore', ['as' => 'usuario_restore', 'uses' => 'UsuarioController@restore']);
 	Route::resource('usuario', 'UsuarioController');
+	Route::resource('electiva', 'ElectivaController');
 
 	Route::get('estudiante/{id}/electivas', ['as' => 'estudiante_materia', 'uses' => 'EstudianteController@electivas']);
 	Route::resource('estudiante', 'EstudianteController');

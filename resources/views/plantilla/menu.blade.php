@@ -20,7 +20,7 @@
 
 			{{-- Electivas --}}
 			<li>
-				<a href="{{ route('escritorio') }}">
+				<a href="{{ route('admin.electiva.index') }}">
 					<i class="fa fa-list"></i> <span>Electivas</span>
 				</a>
 			</li>
