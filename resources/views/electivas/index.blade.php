@@ -43,6 +43,7 @@
 						<th>Nombre</th>
 						<th>Descripción</th>
 						<th>Cupos</th>
+						<th>Profesor</th>
 						<th>Acciones</th>
 					</tr>
 				</thead>
@@ -54,6 +55,7 @@
 								<td>{{ $electiva->nombre }}</td>
 								<td>{{ $electiva->descripcion }}</td>
 								<td>{{ $electiva->n_cupos }}</td>
+								<td>{{ $electiva->profesor->nombre }}</td>
 								<td>
 									{!! Form::open(['route' => ['admin.electiva.destroy', $electiva->id], 'method' => 'DELETE', 'role' => 'form']) !!}	
 										<button class="btn btn-danger btn-sm" type="submit" onclick="return confirm('Seguro que desea eliminar esta electiva? Si la elimina las inscripciones de estudiantes se anulan')"><i class="fa fa-times"></i></button>

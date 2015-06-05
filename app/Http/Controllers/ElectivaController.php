@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Materia;
+use App\Profesor;
 use App\Http\Requests\CrearElectivaRequest;
 use Illuminate\Http\Request;
 use Illuminate\Session\SessionManager;
@@ -11,23 +12,26 @@ use Illuminate\Session\SessionManager;
 class ElectivaController extends Controller {
 
 	protected $electiva;
+	protected $profesor;
 	protected $session;
 
-	public function __construct(Materia $electiva, SessionManager $session)
+	public function __construct(Materia $electiva, Profesor $profesor, SessionManager $session)
 	{
 		$this->electiva = $electiva;
 		$this->session = $session;
+		$this->profesor = $profesor;
 	}
 
 	public function index()
 	{
-		$electivas = $this->electiva->paginate();
+		$electivas = $this->electiva->with('usuario', 'profesor')->paginate();
 		return view('electivas.index', compact('electivas'));
 	}
 
 	public function create()
 	{
-		return view('electivas.create');
+		$profesores = $this->profesor->lists('nombre', 'id');
+		return view('electivas.create', compact('profesores'));
 	}
 
 	/**
@@ -38,7 +42,7 @@ class ElectivaController extends Controller {
 	public function store(CrearElectivaRequest $request)
 	{
 		$electiva = new Materia;
-		$electiva->fill($request->only('nombre', 'descripcion', 'n_cupos', 'id_usuario'));
+		$electiva->fill($request->only('nombre', 'descripcion', 'n_cupos', 'id_profesor', 'id_usuario'));
 		if ($electiva->save()) {
 			$this->session->flash('message', 'Electiva creada con éxito');
 			return \Redirect::route('admin.electiva.index');

@@ -12,3 +12,8 @@
 	{!! Form::label('n_cupos', 'Cupos Disponibles') !!}
 	{!! Form::number('n_cupos', null, ['class' => 'form-control', 'required' => true]) !!}
 </div>
+
+<div class="form-group">
+	{!! Form::label('id_profesor', 'Profesor') !!}
+	{!! Form::select('id_profesor', $profesores, 1, ['class' => 'form-control', 'required' => true]) !!}
+</div>

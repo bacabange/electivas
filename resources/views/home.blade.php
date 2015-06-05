@@ -61,7 +61,7 @@
 			@include('plantilla.partials.errors')
 
 			<p class="login-box-msg">Inicia sesión con tus datos</p>
-			{!! Form::open(['url' => 'auth/login1', 'method' => 'post', 'role' => 'form']) !!}
+			{!! Form::open(['url' => 'estudiante/panel/login', 'method' => 'post', 'role' => 'form']) !!}
 
 				<div class="form-group has-feedback">
 					{!! Form::text('codigo', null, ['class' => 'form-control', 'placeholder' => 'Código']) !!}
