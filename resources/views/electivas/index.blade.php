@@ -55,7 +55,9 @@
 								<td>{{ $electiva->descripcion }}</td>
 								<td>{{ $electiva->n_cupos }}</td>
 								<td>
-									<button class="btn btn-danger btn-sm"><i class="fa fa-times"></i></button>
+									{!! Form::open(['route' => ['admin.electiva.destroy', $electiva->id], 'method' => 'DELETE', 'role' => 'form']) !!}	
+										<button class="btn btn-danger btn-sm" type="submit" onclick="return confirm('Seguro que desea eliminar esta electiva? Si la elimina las inscripciones de estudiantes se anulan')"><i class="fa fa-times"></i></button>
+									{!! Form::close() !!}
 								</td>
 							</tr>
 						@endforeach

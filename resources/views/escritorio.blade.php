@@ -17,6 +17,7 @@
 			<span class="info-box-icon bg-green"><i class="fa fa-users"></i></span>
 			<div class="info-box-content">
 			<span class="info-box-text">Usuarios</span>
+				<span class="info-box-number">{{ $usuarios }}</span>
 			</div>
 		</div>
 	</div>

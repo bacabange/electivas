@@ -86,7 +86,13 @@ class ElectivaController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		$electiva = $this->electiva->findOrFail($id);
+		$nombre = $electiva->nombre;
+		
+		if ($electiva->delete()) {
+			$this->session->flash('message', "'".$nombre."' fue eliminada de la lista de Electivas.");
+			return \Redirect::route('admin.electiva.index');
+		}
 	}
 
 }
