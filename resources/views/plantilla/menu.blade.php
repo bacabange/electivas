@@ -25,6 +25,13 @@
 				</a>
 			</li>
 
+			{{-- Estudiantes --}}
+			<li>
+				<a href="{{ route('admin.estudiante.index') }}">
+					<i class="fa fa-users"></i> <span>Estudiantes</span>
+				</a>
+			</li>
+
 			{{-- Administracion de la plataforma --}}
 			<li class="treeview">
 				<a href="#">

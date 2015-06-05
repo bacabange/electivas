@@ -12,7 +12,6 @@ class CreateEstudianteTable extends Migration {
 			$table->increments('id');
 			$table->string('nombre');
 			$table->string('codigo', 6);
-			$table->rememberToken();
 			$table->softDeletes();
 			$table->timestamps();
 		});

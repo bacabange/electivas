@@ -14,7 +14,6 @@ class CreateMateriaTable extends Migration {
 			$table->text('descripcion');
 			$table->integer('n_cupos')->unsigned();
 			$table->integer('id_usuario')->unsigned();
-			$table->rememberToken();
 			$table->timestamps();
 
 			$table->foreign('id_usuario')->references('id')->on('usuario')->onDelete('cascade');

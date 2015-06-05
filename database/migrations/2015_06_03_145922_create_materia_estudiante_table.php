@@ -12,7 +12,6 @@ class CreateMateriaEstudianteTable extends Migration {
 			$table->increments('id');
 			$table->integer('id_materia')->unsigned();
 			$table->integer('id_estudiante')->unsigned();
-			$table->rememberToken();
 			$table->timestamps();
 
 			$table->foreign('id_estudiante')->references('id')->on('estudiante')->onDelete('cascade');
