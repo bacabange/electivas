@@ -25,6 +25,9 @@ Route::group(['prefix' => 'estudiante', 'namespace' => 'Estudiante'], function (
 	Route::controllers([
 		'panel' => 'PanelController'
 	]);
+	Route::get('inscribirse', ['as' => 'ajax_inscribirse', 'uses' => 'MateriaController@inscripcion']);
+	Route::resource('materia', 'MateriaController');
+
 });
 
 Route::get('/prueba', function ()

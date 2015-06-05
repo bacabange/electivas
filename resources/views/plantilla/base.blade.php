@@ -96,7 +96,7 @@
 				<div class="pull-right hidden-xs">
 					<b>Versión</b> 1.0
 				</div>
-				<a href="#">Tienda.com.co &copy;</a> 2015. Todos los derechos reservados.
+				<a href="#">Electivas &copy;</a> 2015. Todos los derechos reservados.
 			</footer>
 		</div>
 

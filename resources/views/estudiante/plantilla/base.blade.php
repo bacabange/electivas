@@ -34,15 +34,15 @@
 							<li class="dropdown user user-menu">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 									<img src="{{ asset('administrador/img/user2-160x160.jpg') }}" class="user-image" alt="Stiven castillo"/>
-									<span class="hidden-xs">{{ Auth::user()->username }}</span>
+									<span class="hidden-xs">{{ Session::get('estudiante')->nombre }}</span>
 								</a>
 								<ul class="dropdown-menu">
 									<!-- User image -->
 									<li class="user-header">
 										<img src="{{ asset('administrador/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image" />
 										<p>
-											{{ Auth::user()->username }}
-											<small>Username</small>
+											{{ Session::get('estudiante')->nombre }}
+											<small>Nombre</small>
 										</p>
 									</li>
 									<!-- Menu Body -->
@@ -63,7 +63,7 @@
 											{{-- <a href="#" class="btn btn-default btn-flat">Perfil</a> --}}
 										</div>
 										<div class="pull-right">
-											<a href="{{ url('auth/logout') }}" class="btn btn-default btn-flat">Cerrar Sesión</a>
+											<a href="{{ url('estudiante/panel/logout') }}" class="btn btn-default btn-flat">Cerrar Sesión</a>
 										</div>
 									</li>
 								</ul>
@@ -74,7 +74,7 @@
 			</header>
 			
 			{{-- Menu Left --}}
-			@extends('plantilla.menu')
+			@extends('estudiante.plantilla.menu')
 
 			{{-- Contenido --}}
 			<div class="content-wrapper">
@@ -96,7 +96,7 @@
 				<div class="pull-right hidden-xs">
 					<b>Versión</b> 1.0
 				</div>
-				<a href="#">Tienda.com.co &copy;</a> 2015. Todos los derechos reservados.
+				<a href="#">Electivas &copy;</a> 2015. Todos los derechos reservados.
 			</footer>
 		</div>
 

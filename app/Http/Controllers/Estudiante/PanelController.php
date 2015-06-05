@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Estudiante;
+use App\Materia;
 use Illuminate\Session\SessionManager;
 
 use Illuminate\Http\Request;
@@ -12,16 +13,27 @@ class PanelController extends Controller {
 
 	protected $estudiante;
 	protected $session;
+	protected $materia;
 
-	public function __construct(Estudiante $estudiante, SessionManager $session)
+	public function __construct(Estudiante $estudiante, Materia $materia, SessionManager $session)
 	{
 		$this->estudiante = $estudiante;
 		$this->session = $session;
+		$this->materia = $materia;
+
+		$this->middleware('is_estudiante', ['only' => 'getEscritorio']);
 	}
 
 	public function getEscritorio()
 	{
-		
+		$mis_electivas = $this->estudiante->with('materia')
+			->where('codigo', session('estudiante')->codigo)
+			->first()->materia;
+
+		$electivas = $this->materia->where('n_cupos', '>', 0)->get();
+
+		return view('estudiante.escritorio', compact('mis_electivas', 'electivas'));
+		// $this->session->forget('estudiante');
 	}
 
 	public function postLogin()
@@ -32,8 +44,21 @@ class PanelController extends Controller {
 			session(['estudiante' => $estudiante]);
 			return redirect()->to('/estudiante/panel/escritorio');
 		}else{
-			return 'Nopa';
+			return redirect()->to('/');
 		}
+	}
+
+	public function getLogout()
+	{
+		$this->session->forget('estudiante');
+		return redirect()->to('/');
+	}
+
+	public function getElectivas()
+	{
+		$estudiante = $this->estudiante->where('codigo', session('estudiante')->codigo)->first();
+
+		return view('estudiante.electivas.mi', compact('estudiante'));
 	}
 
 

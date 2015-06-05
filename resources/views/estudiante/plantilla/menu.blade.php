@@ -13,38 +13,16 @@
 		<ul class="sidebar-menu">
 			<li class="header">MENÚ</li>
 			<li>
-				<a href="{{ route('escritorio') }}">
+				<a href="{{ url('estudiante/panel/escritorio') }}">
 					<i class="fa fa-dashboard"></i> <span>Escritorio</span>
 				</a>
 			</li>
 
 			{{-- Electivas --}}
 			<li>
-				<a href="{{ route('admin.electiva.index') }}">
-					<i class="fa fa-list"></i> <span>Electivas</span>
+				<a href="{{ url('estudiante/panel/electivas') }}">
+					<i class="fa fa-list"></i> <span>Mis Electivas</span>
 				</a>
-			</li>
-
-			{{-- Estudiantes --}}
-			<li>
-				<a href="{{ route('admin.estudiante.index') }}">
-					<i class="fa fa-users"></i> <span>Estudiantes</span>
-				</a>
-			</li>
-
-			{{-- Administracion de la plataforma --}}
-			<li class="treeview">
-				<a href="#">
-					<i class="fa fa-cogs"></i> <span>Administración</span> <i class="fa fa-angle-left pull-right"></i>
-				</a>
-
-				<ul class="treeview-menu menu-open">
-					<li>
-						<a href="{{ route('admin.usuario.index') }}">
-							<i class="fa fa-users"></i> <span>Usuarios</span>
-						</a>
-					</li>
-				</ul>
 			</li>
 		</ul>
 	</section>
